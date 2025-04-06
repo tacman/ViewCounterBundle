@@ -4,7 +4,7 @@
  * This file is part of the TchoulomViewCounterBundle package.
  *
  * @package    TchoulomViewCounterBundle
- * @author     Original Author <tchoulomernest@yahoo.fr>
+ * @author     Original Author <tchoulomernest@gmail.com>
  *
  * (c) Ernest TCHOULOM
  *
@@ -23,28 +23,20 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
  */
 trait AuditTrait
 {
-    /**
-     * @MongoDB\Field(type="date", name="created_at")
-     */
+    #[MongoDB\Field(type: 'date', name: 'created_at')]
     protected $createdAt;
 
-    /**
-     * @MongoDB\Field(type="date", name="updated_at")
-     */
+    #[MongoDB\Field(type: 'date', name: 'updated_at')]
     protected $updatedAt;
 
-    /**
-     * @MongoDB\PrePersist
-     */
-    public function onPrePersist()
+    #[MongoDB\PrePersist]
+    public function onPrePersist(): void
     {
         $this->createdAt = new DateTime();
     }
 
-    /**
-     * @MongoDB\PreUpdate
-     */
-    public function onPreUpdate()
+    #[MongoDB\PreUpdate]
+    public function onPreUpdate(): void
     {
         $this->updatedAt = new DateTime();
     }

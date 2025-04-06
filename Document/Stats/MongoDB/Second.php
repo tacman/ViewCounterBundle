@@ -4,7 +4,7 @@
  * This file is part of the TchoulomViewCounterBundle package.
  *
  * @package    TchoulomViewCounterBundle
- * @author     Original Author <tchoulomernest@yahoo.fr>
+ * @author     Original Author <tchoulomernest@gmail.com>
  *
  * (c) Ernest TCHOULOM
  *
@@ -18,28 +18,20 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
-/**
- * @MongoDB\Document(collection="second", repositoryClass="Tchoulom\ViewCounterBundle\Repository\Stats\MongoDB\SecondRepository")
- * @MongoDB\HasLifecycleCallbacks
- */
+#[MongoDB\Document(collection: 'second', repositoryClass: 'Tchoulom\ViewCounterBundle\Repository\Stats\MongoDB\SecondRepository')]
+#[MongoDB\HasLifecycleCallbacks]
 class Second
 {
     use ViewTrait;
     use AuditTrait;
 
-    /**
-     * @MongoDB\Id
-     */
+    #[MongoDB\Id]
     private $id;
 
-    /**
-     * @MongoDB\Field(type="string")
-     */
+    #[MongoDB\Field(type: 'string')]
     protected $name;
 
-    /**
-     * @MongoDB\ReferenceOne(targetDocument="Tchoulom\ViewCounterBundle\Document\Stats\MongoDB\Minute", name="minute_id", inversedBy="seconds")
-     */
+    #[MongoDB\ReferenceOne(targetDocument: 'Tchoulom\ViewCounterBundle\Document\Stats\MongoDB\Minute', name: 'minute_id', inversedBy: 'seconds')]
     protected $minute;
 
     /**

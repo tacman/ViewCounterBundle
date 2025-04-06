@@ -4,7 +4,7 @@
  * This file is part of the TchoulomViewCounterBundle package.
  *
  * @package    TchoulomViewCounterBundle
- * @author     Original Author <tchoulomernest@yahoo.fr>
+ * @author     Original Author <tchoulomernest@gmail.com>
  *
  * (c) Ernest TCHOULOM
  *
@@ -21,9 +21,7 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
  */
 trait NumberTrait
 {
-    /**
-     * @MongoDB\Field(type="integer")
-     */
+    #[MongoDB\Field(type: 'integer')]
     protected $number;
 
     /**

@@ -5,7 +5,7 @@
  * This file is part of the TchoulomViewCounterBundle package.
  *
  * @package    TchoulomViewCounterBundle
- * @author     Original Author <tchoulomernest@yahoo.fr>
+ * @author     Original Author <tchoulomernest@gmail.com>
  *
  * (c) Ernest TCHOULOM
  *
@@ -19,28 +19,20 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
-/**
- * @MongoDB\Document(collection="city", repositoryClass="Tchoulom\ViewCounterBundle\Repository\Stats\MongoDB\CityRepository")
- * @MongoDB\HasLifecycleCallbacks
- */
+#[MongoDB\Document(collection: 'city', repositoryClass: 'Tchoulom\ViewCounterBundle\Repository\Stats\MongoDB\CityRepository')]
+#[MongoDB\HasLifecycleCallbacks]
 class City
 {
     use ViewTrait;
     use AuditTrait;
 
-    /**
-     * @MongoDB\Id
-     */
+    #[MongoDB\Id]
     private $id;
 
-    /**
-     * @MongoDB\Field(type="string")
-     */
+    #[MongoDB\Field(type: 'string')]
     protected $name;
 
-    /**
-     * @MongoDB\ReferenceOne(targetDocument="Tchoulom\ViewCounterBundle\Document\Stats\MongoDB\Region", name="region_id", inversedBy="cities")
-     */
+    #[MongoDB\ReferenceOne(targetDocument: 'Tchoulom\ViewCounterBundle\Document\Stats\MongoDB\Region', name: 'region_id', inversedBy: 'cities')]
     protected $region;
 
     /**
