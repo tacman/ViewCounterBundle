@@ -1,11 +1,21 @@
-The View Counter Bundle
-========================
+# The View Counter Bundle
 
 Welcome to the "**TchoulomViewCounterBundle**".
 
 This bundle is used to count the number of views of web pages (the viewership).
 
 This bundle can also be used to draw a graphical representation of statistical data of the web pages.
+
+## Dev
+
+composer config repositories.view_counter '{"type": "path", "url": "/home/tac/g/tacman/ViewCounterBundle"}'
+composer req tchoulom/view-counter-bundle:dev-tac
+
+        "view_counter_bundle": {
+            "type": "vcs",
+            "url": "git@github.com:tacman/ViewCounterBundle.git"
+        },
+
 
 <img src="https://raw.githubusercontent.com/tchoulom/ViewCounterBundle/master/Resources/doc/images/monthly-views-2018.png" alt="Monthly views in 2018" align="center" />
 

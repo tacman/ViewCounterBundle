@@ -35,7 +35,7 @@ class TchoulomViewCounterExtension extends Extension
 
         $config = $this->processConfiguration($configuration, $configs);
 
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../../config'));
 
         $loader->load('viewcounter.yml');
         $loader->load('storage.yml');
